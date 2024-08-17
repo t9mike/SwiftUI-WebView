@@ -68,6 +68,10 @@ public struct WebView: View, UIViewRepresentable {
   
   public init(webView: WKWebView) {
     self.webView = webView
+      
+    // To avoid white flash on page load via https://stackoverflow.com/a/15670274/420175
+    self.webView.isOpaque = false
+    self.webView.backgroundColor = UIColor.clear
   }
   
   public func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView {
